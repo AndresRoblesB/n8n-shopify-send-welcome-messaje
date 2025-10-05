@@ -60,8 +60,8 @@ Está construido completamente en **[n8n](https://n8n.io)** y utiliza integracio
 
 1. Clona este repositorio:
    ```bash
-   git clone https://github.com/tuusuario/envio-bienvenida-shopify.git
-   cd envio-bienvenida-shopify
+   git clone https://github.com/AndresRoblesB/n8n-shopify-send-welcome-messaje.git
+
    ```
 
 2. Importa el flujo a tu instancia de n8n:
@@ -106,5 +106,5 @@ Puedes usarlo, adaptarlo y distribuirlo libremente.
 
 ## 💡 Autor
 
-Desarrollado por **[Tu Nombre](https://github.com/tuusuario)**  
+Desarrollado por **[AndresRoblesB](https://github.com/AndresRoblesB)**  
 Inspirado en flujos de bienvenida automatizados para e-commerce.
