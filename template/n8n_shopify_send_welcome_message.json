@@ -1,0 +1,907 @@
+{
+  "name": "Envio de bienvenida  shopify",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "50ccb5b0-7786-4a5f-b741-9e2a7fb9a405",
+              "name": "first_name",
+              "value": "={{ $json.first_name }}",
+              "type": "string"
+            },
+            {
+              "id": "14635b63-f77a-4771-9b77-2eeb93d50c92",
+              "name": "last_name",
+              "value": "={{ $json.last_name }}",
+              "type": "string"
+            },
+            {
+              "id": "0177b22f-2d13-468a-b2fb-b02b22b68da3",
+              "name": "created_at",
+              "value": "={{ $json.created_at }}",
+              "type": "string"
+            },
+            {
+              "id": "e3713a1f-9871-4267-8111-9678b97b7aa2",
+              "name": "updated_at",
+              "value": "={{ $json.updated_at }}",
+              "type": "string"
+            },
+            {
+              "id": "af8c7aeb-f97d-4a17-b028-ad08ed403e6d",
+              "name": "email",
+              "value": "={{ $json.email }}",
+              "type": "string"
+            },
+            {
+              "id": "1b452de3-d7d5-4732-ae60-e900d9155ee3",
+              "name": "phone",
+              "value": "={{ $json.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "8dcd5cab-93d9-4940-9507-9768fde4994e",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "7554ead1-a85f-44eb-ac55-98897338717a",
+              "name": "addresses[0].city",
+              "value": "={{ $json.addresses[0].city }}",
+              "type": "string"
+            },
+            {
+              "id": "fe05ac02-9226-4c72-8051-2511acb3ab7f",
+              "name": "addresses[0].country",
+              "value": "={{ $json.addresses[0].country }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -576,
+        -64
+      ],
+      "id": "66a415ea-b599-4ed8-9999-1c3df76e657b",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "authentication": "accessToken",
+        "topic": "customers/create"
+      },
+      "type": "n8n-nodes-base.shopifyTrigger",
+      "typeVersion": 1,
+      "position": [
+        -768,
+        -64
+      ],
+      "id": "6632788b-401d-445b-8e19-44ef63d1de5b",
+      "name": "Shopify Trigger",
+      "webhookId": "3ffa89c0-2a87-4532-ad9b-cb752cf0e039",
+      "credentials": {
+        "shopifyAccessTokenApi": {
+          "id": "8eQgg9rChM8DGD1L",
+          "name": "Shopify Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "value": "n8n_shopify_clientes_mitienda",
+          "mode": "list",
+          "cachedResultName": "n8n_shopify_clientes_mitienda"
+        },
+        "table": {
+          "__rl": true,
+          "value": "registro_clientes",
+          "mode": "list",
+          "cachedResultName": "registro_clientes"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "created_at_registry": "2025-09-18T20:38:36",
+            "id": "={{ $json.id }}",
+            "updated_at": "={{ $json.updated_at }}",
+            "created_at": "={{ $json.created_at }}",
+            "first_name": "={{ $json.first_name }}",
+            "last_name": "={{ $json.last_name }}",
+            "email": "={{ $json.email }}",
+            "phone": "={{ $json.phone }}",
+            "envio": 1,
+            "estado": "pendiente"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "created_at_registry",
+              "displayName": "created_at_registry",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "first_name",
+              "displayName": "first_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "last_name",
+              "displayName": "last_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "envio",
+              "displayName": "envio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -368,
+        -64
+      ],
+      "id": "e5c751ee-6411-488c-8603-3746fb1909f9",
+      "name": "Insert rows in a table",
+      "credentials": {
+        "postgres": {
+          "id": "pQmvdyJUANwGT1ce",
+          "name": "Postgre personal supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.email }}",
+        "subject": "=Bienvenido a mi tienda",
+        "message": "=<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>¡Bienvenido a Mi Tienda!</title>\n    <style>\n        * {\n            margin: 0;\n            padding: 0;\n            box-sizing: border-box;\n        }\n        \n        body {\n            font-family: 'Arial', sans-serif;\n            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);\n            padding: 20px;\n            line-height: 1.6;\n        }\n        \n        .email-container {\n            max-width: 600px;\n            margin: 0 auto;\n            background: white;\n            border-radius: 15px;\n            overflow: hidden;\n            box-shadow: 0 10px 30px rgba(0,0,0,0.1);\n        }\n        \n        .header {\n            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);\n            color: white;\n            padding: 40px 30px;\n            text-align: center;\n            position: relative;\n        }\n        \n        .header::before {\n            content: '';\n            position: absolute;\n            top: 0;\n            left: 0;\n            right: 0;\n            bottom: 0;\n            background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><circle cx=\"20\" cy=\"20\" r=\"2\" fill=\"rgba(255,255,255,0.1)\"/><circle cx=\"80\" cy=\"40\" r=\"3\" fill=\"rgba(255,255,255,0.1)\"/><circle cx=\"40\" cy=\"80\" r=\"2\" fill=\"rgba(255,255,255,0.1)\"/></svg>');\n        }\n        \n        .header-content {\n            position: relative;\n            z-index: 1;\n        }\n        \n        .logo {\n            font-size: 32px;\n            font-weight: bold;\n            margin-bottom: 10px;\n            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);\n        }\n        \n        .welcome-title {\n            font-size: 24px;\n            margin-bottom: 15px;\n            font-weight: 300;\n        }\n        \n        .content {\n            padding: 40px 30px;\n        }\n        \n        .welcome-message {\n            font-size: 18px;\n            color: #333;\n            margin-bottom: 30px;\n            text-align: center;\n        }\n        \n        .coupon-section {\n            background: linear-gradient(135deg, #dc3545 0%, #e74c3c 100%);\n            border-radius: 12px;\n            padding: 30px;\n            text-align: center;\n            margin: 30px 0;\n            position: relative;\n            overflow: hidden;\n        }\n        \n        .coupon-section::before {\n            content: '';\n            position: absolute;\n            top: -50%;\n            left: -50%;\n            width: 200%;\n            height: 200%;\n            background: repeating-linear-gradient(\n                45deg,\n                transparent,\n                transparent 10px,\n                rgba(255,255,255,0.05) 10px,\n                rgba(255,255,255,0.05) 20px\n            );\n            animation: shine 3s linear infinite;\n        }\n        \n        @keyframes shine {\n            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }\n            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }\n        }\n        \n        .coupon-content {\n            position: relative;\n            z-index: 1;\n        }\n        \n        .coupon-title {\n            color: white;\n            font-size: 24px;\n            font-weight: bold;\n            margin-bottom: 15px;\n            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);\n        }\n        \n        .coupon-code {\n            background: white;\n            color: #dc3545;\n            padding: 15px 30px;\n            border-radius: 8px;\n            font-size: 24px;\n            font-weight: bold;\n            letter-spacing: 3px;\n            margin: 20px 0;\n            display: inline-block;\n            box-shadow: 0 4px 15px rgba(0,0,0,0.2);\n            border: 3px dashed #dc3545;\n        }\n        \n        .coupon-description {\n            color: white;\n            font-size: 16px;\n            margin-bottom: 10px;\n        }\n        \n        .coupon-expiry {\n            color: rgba(255,255,255,0.9);\n            font-size: 14px;\n            font-style: italic;\n        }\n        \n        .cta-button {\n            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);\n            color: white;\n            padding: 15px 40px;\n            border: none;\n            border-radius: 50px;\n            font-size: 18px;\n            font-weight: bold;\n            text-decoration: none;\n            display: inline-block;\n            margin: 20px 0;\n            transition: all 0.3s ease;\n            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);\n        }\n        \n        .cta-button:hover {\n            transform: translateY(-2px);\n            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);\n            text-decoration: none;\n            color: white;\n        }\n        \n        .footer {\n            background: #f8f9fa;\n            padding: 30px;\n            text-align: center;\n            color: #6c757d;\n            font-size: 14px;\n        }\n        \n        .social-links {\n            margin-top: 20px;\n        }\n        \n        .social-links a {\n            display: inline-block;\n            margin: 0 10px;\n            padding: 10px;\n            background: #28a745;\n            color: white;\n            border-radius: 50%;\n            text-decoration: none;\n            width: 40px;\n            height: 40px;\n            line-height: 20px;\n        }\n        \n        @media (max-width: 600px) {\n            .email-container {\n                margin: 10px;\n                border-radius: 10px;\n            }\n            \n            .header, .content {\n                padding: 30px 20px;\n            }\n            \n            .coupon-section {\n                padding: 20px;\n            }\n            \n            .coupon-code {\n                font-size: 20px;\n                letter-spacing: 2px;\n                padding: 12px 20px;\n            }\n        }\n    </style>\n</head>\n<body>\n    <div class=\"email-container\">\n        <div class=\"header\">\n            <div class=\"header-content\">\n                <div class=\"logo\">🛍️ Mi Tienda</div>\n                <div class=\"welcome-title\">¡Te damos la bienvenida!</div>\n            </div>\n        </div>\n        \n        <div class=\"content\">\n            <div class=\"welcome-message\">\n                <strong>¡Hola y bienvenido/a a nuestra familia!</strong><br><br>\n                Estamos emocionados de tenerte con nosotros. En <strong>Mi Tienda</strong> encontrarás productos de la más alta calidad y un servicio excepcional que superará tus expectativas.\n            </div>\n            \n            <div class=\"coupon-section\">\n                <div class=\"coupon-content\">\n                    <div class=\"coupon-title\">🎉 ¡Regalo de Bienvenida! 🎉</div>\n                    <div class=\"coupon-description\">\n                        Como agradecimiento por unirte a nosotros, te obsequiamos:\n                    </div>\n                    <div class=\"coupon-code\">BIENVENIDO20</div>\n                    <div class=\"coupon-description\">\n                        <strong>20% de descuento</strong> en tu próxima compra\n                    </div>\n                    <div class=\"coupon-expiry\">\n                        ⏰ Válido hasta: 19 de Octubre, 2025\n                    </div>\n                </div>\n            </div>\n            \n            <div style=\"text-align: center;\">\n                <p style=\"margin-bottom: 20px; color: #666;\">\n                    ¿Listo para descubrir nuestros increíbles productos?\n                </p>\n                <a href=\"#\" class=\"cta-button\">¡Empezar a Comprar!</a>\n            </div>\n            \n            <div style=\"text-align: center; margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;\">\n                <p style=\"color: #666; margin-bottom: 10px;\">\n                    💡 <strong>Tip:</strong> Guarda este email para no perder tu código de descuento\n                </p>\n                <p style=\"color: #666; font-size: 14px;\">\n                    Si tienes alguna pregunta, no dudes en contactarnos. ¡Estamos aquí para ayudarte!\n                </p>\n            </div>\n        </div>\n        \n        <div class=\"footer\">\n            <p><strong>Mi Tienda</strong></p>\n            <p>Gracias por elegirnos para tus compras</p>\n            <div class=\"social-links\">\n                <a href=\"#\">📘</a>\n                <a href=\"#\">📷</a>\n                <a href=\"#\">🐦</a>\n            </div>\n            <p style=\"margin-top: 20px; font-size: 12px;\">\n                © 2025 Mi Tienda. Todos los derechos reservados.\n            </p>\n        </div>\n    </div>\n</body>\n</html>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -144,
+        -64
+      ],
+      "id": "8b741123-6b39-4249-b44f-e364af53812c",
+      "name": "Send a message",
+      "webhookId": "512694b2-c029-4d86-8e03-48476844cc10",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "yKZ1GfF5A551HHPt",
+          "name": "Gmail account personal"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9dbe1ee8-fa03-4296-b593-fe11d0feddf2",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        112,
+        -64
+      ],
+      "id": "263060da-f7df-4d28-9ce7-f306dbb3bba5",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "value": "n8n_shopify_clientes_mitienda",
+          "mode": "list",
+          "cachedResultName": "n8n_shopify_clientes_mitienda"
+        },
+        "table": {
+          "__rl": true,
+          "value": "registro_clientes",
+          "mode": "list",
+          "cachedResultName": "registro_clientes"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Insert rows in a table').item.json.id }}",
+            "created_at_registry": "={{ $now }}",
+            "created_at": "={{ $('Insert rows in a table').item.json.created_at }}",
+            "updated_at": "={{ $('Insert rows in a table').item.json.updated_at }}",
+            "first_name": "={{ $('Insert rows in a table').item.json.first_name }}",
+            "last_name": "={{ $('Insert rows in a table').item.json.last_name }}",
+            "email": "={{ $('Insert rows in a table').item.json.email }}",
+            "envio": 1,
+            "estado": "enviado",
+            "phone": "={{ $('Insert rows in a table').item.json.phone }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "created_at_registry",
+              "displayName": "created_at_registry",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "first_name",
+              "displayName": "first_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "last_name",
+              "displayName": "last_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "envio",
+              "displayName": "envio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        336,
+        -208
+      ],
+      "id": "e2f2f8d5-29a7-425f-933e-6b9867182108",
+      "name": "Update rows in a table",
+      "credentials": {
+        "postgres": {
+          "id": "pQmvdyJUANwGT1ce",
+          "name": "Postgre personal supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## ENVIO 1",
+        "height": 384,
+        "width": 1552,
+        "color": 2
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -816,
+        -240
+      ],
+      "typeVersion": 1,
+      "id": "bdec368a-7002-402d-b1b8-d825147c328f",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -752,
+        368
+      ],
+      "id": "3e452b9f-4043-44c9-afb0-58223eb629d8",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2ec370ca-1817-46a2-b0b2-c940eacf1504",
+              "name": "horas_segundo_envio",
+              "value": 1,
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -544,
+        368
+      ],
+      "id": "36774b12-e434-451c-b267-aedf615dade7",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "value": "n8n_shopify_clientes_mitienda",
+          "mode": "list",
+          "cachedResultName": "n8n_shopify_clientes_mitienda"
+        },
+        "table": {
+          "__rl": true,
+          "value": "registro_clientes",
+          "mode": "list",
+          "cachedResultName": "registro_clientes"
+        },
+        "returnAll": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -336,
+        368
+      ],
+      "id": "ef6f07ba-b699-4000-b635-9763071e8905",
+      "name": "Select rows from a table",
+      "credentials": {
+        "postgres": {
+          "id": "pQmvdyJUANwGT1ce",
+          "name": "Postgre personal supabase"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "addToDate",
+        "magnitude": "={{ $('Select rows from a table').item.json.created_at_registry }}",
+        "timeUnit": "hours",
+        "duration": "={{ $('Edit Fields1').item.json.horas_segundo_envio }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dateTime",
+      "typeVersion": 2,
+      "position": [
+        -80,
+        368
+      ],
+      "id": "6a00f24c-8cf6-4a73-abd5-1ade4a0b8de1",
+      "name": "Date & Time1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b1192633-18f4-4083-a062-7b2a025ac6cc",
+              "leftValue": "={{ $now }}",
+              "rightValue": "={{ $json.newDate }}",
+              "operator": {
+                "type": "dateTime",
+                "operation": "afterOrEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        128,
+        384
+      ],
+      "id": "99918c68-1c47-42cb-8add-35e835b6611f",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Select rows from a table').item.json.email }}",
+        "subject": "Hola, segunfo envio",
+        "message": "<!DOCTYPE html> <html lang=\"es\"> <head>     <meta charset=\"UTF-8\">     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">     <title>Tu descuento sigue disponible - Mi Tienda</title>     <style>         * {             margin: 0;             padding: 0;             box-sizing: border-box;         }                  body {             font-family: 'Arial', sans-serif;             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);             padding: 20px;             line-height: 1.6;         }                  .email-container {             max-width: 600px;             margin: 0 auto;             background: white;             border-radius: 15px;             overflow: hidden;             box-shadow: 0 10px 30px rgba(0,0,0,0.1);         }                  .header {             background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);             color: white;             padding: 40px 30px;             text-align: center;             position: relative;         }                  .header::before {             content: '';             position: absolute;             top: 0;             left: 0;             right: 0;             bottom: 0;             background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><circle cx=\"15\" cy=\"25\" r=\"2\" fill=\"rgba(255,255,255,0.1)\"/><circle cx=\"75\" cy=\"15\" r=\"3\" fill=\"rgba(255,255,255,0.1)\"/><circle cx=\"85\" cy=\"75\" r=\"2\" fill=\"rgba(255,255,255,0.1)\"/><circle cx=\"25\" cy=\"85\" r=\"2\" fill=\"rgba(255,255,255,0.1)\"/></svg>');         }                  .header-content {             position: relative;             z-index: 1;         }                  .logo {             font-size: 32px;             font-weight: bold;             margin-bottom: 10px;             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);         }                  .header-title {             font-size: 22px;             margin-bottom: 10px;             font-weight: 300;         }                  .header-subtitle {             font-size: 16px;             opacity: 0.9;         }                  .content {             padding: 40px 30px;         }                  .reminder-section {             background: linear-gradient(135deg, #28a745 0%, #20c997 100%);             border-radius: 12px;             padding: 25px;             text-align: center;             margin-bottom: 35px;             position: relative;             overflow: hidden;         }                  .reminder-section::before {             content: '⏰';             position: absolute;             top: 10px;             right: 15px;             font-size: 24px;             opacity: 0.3;         }                  .reminder-content {             position: relative;             z-index: 1;         }                  .reminder-title {             color: white;             font-size: 20px;             font-weight: bold;             margin-bottom: 10px;         }                  .coupon-code-small {             background: white;             color: #28a745;             padding: 10px 20px;             border-radius: 6px;             font-size: 18px;             font-weight: bold;             letter-spacing: 2px;             margin: 15px 0;             display: inline-block;             box-shadow: 0 2px 10px rgba(0,0,0,0.1);         }                  .reminder-text {             color: white;             font-size: 14px;             margin-top: 10px;         }                  .story-section {             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);             border: 2px solid #e9ecef;             border-radius: 12px;             padding: 30px;             margin: 30px 0;             position: relative;         }                  .story-section::before {             content: '📖';             position: absolute;             top: -15px;             left: 30px;             background: white;             padding: 0 10px;             font-size: 24px;         }                  .story-title {             color: #dc3545;             font-size: 22px;             font-weight: bold;             margin-bottom: 20px;             text-align: center;         }                  .story-content {             color: #495057;             font-size: 16px;             line-height: 1.8;             text-align: justify;         }                  .story-highlight {             background: linear-gradient(120deg, #28a745 0%, transparent 100%);             background-size: 100% 3px;             background-repeat: no-repeat;             background-position: 0 bottom;             font-weight: bold;             color: #28a745;         }                  .values-section {             display: flex;             justify-content: space-around;             margin: 30px 0;             flex-wrap: wrap;         }                  .value-item {             text-align: center;             flex: 1;             min-width: 150px;             margin: 10px;             padding: 20px 10px;             border-radius: 10px;             transition: transform 0.3s ease;         }                  .value-item:hover {             transform: translateY(-5px);         }                  .value-item:nth-child(1) {             background: linear-gradient(135deg, #28a745, #20c997);             color: white;         }                  .value-item:nth-child(2) {             background: linear-gradient(135deg, #dc3545, #c82333);             color: white;         }                  .value-item:nth-child(3) {             background: linear-gradient(135deg, #6c757d, #495057);             color: white;         }                  .value-icon {             font-size: 24px;             margin-bottom: 10px;         }                  .value-title {             font-weight: bold;             margin-bottom: 5px;         }                  .cta-button {             background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);             color: white;             padding: 18px 45px;             border: none;             border-radius: 50px;             font-size: 18px;             font-weight: bold;             text-decoration: none;             display: inline-block;             margin: 25px 0;             transition: all 0.3s ease;             box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);         }                  .cta-button:hover {             transform: translateY(-2px);             box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4);             text-decoration: none;             color: white;         }                  .footer {             background: #f8f9fa;             padding: 30px;             text-align: center;             color: #6c757d;             font-size: 14px;         }                  .social-links {             margin-top: 20px;         }                  .social-links a {             display: inline-block;             margin: 0 10px;             padding: 10px;             background: #dc3545;             color: white;             border-radius: 50%;             text-decoration: none;             width: 40px;             height: 40px;             line-height: 20px;         }                  @media (max-width: 600px) {             .email-container {                 margin: 10px;                 border-radius: 10px;             }                          .header, .content {                 padding: 30px 20px;             }                          .story-section, .reminder-section {                 padding: 20px;             }                          .values-section {                 flex-direction: column;             }                          .value-item {                 margin: 10px 0;             }         }     </style> </head> <body>     <div class=\"email-container\">         <div class=\"header\">             <div class=\"header-content\">                 <div class=\"logo\">🛍️ Mi Tienda</div>                 <div class=\"header-title\">¡Tu descuento sigue esperándote!</div>                 <div class=\"header-subtitle\">Conoce nuestra historia</div>             </div>         </div>                  <div class=\"content\">             <div class=\"reminder-section\">                 <div class=\"reminder-content\">                     <div class=\"reminder-title\">⚡ ¡No olvides tu 20% de descuento!</div>                     <div class=\"coupon-code-small\">BIENVENIDO20</div>                     <div class=\"reminder-text\">                         Válido hasta: 19 de Octubre, 2025                     </div>                 </div>             </div>                          <div style=\"text-align: center; margin-bottom: 30px;\">                 <p style=\"font-size: 18px; color: #333;\">                     Mientras decides qué llevarte, queremos contarte <strong>quiénes somos</strong> y por qué <span class=\"story-highlight\">Mi Tienda</span> es especial para nosotros.                 </p>             </div>                          <div class=\"story-section\">                 <div class=\"story-title\">Nuestra Historia</div>                 <div class=\"story-content\">                     Todo comenzó en 2018 cuando María y Carlos, dos emprendedores apasionados, se conocieron en una feria local de artesanos. Él tenía un pequeño taller de productos artesanales, ella dominaba el mundo digital. <strong>Juntos soñaron con crear algo diferente.</strong>                     <br><br>                     Después de meses de planificación en su pequeño apartamento, nació <span class=\"story-highlight\">Mi Tienda</span>. Comenzamos vendiendo solo 12 productos hechos a mano, pero con una promesa clara: <strong>calidad excepcional y servicio personalizado para cada cliente.</strong>                     <br><br>                     Hoy, 7 años después, seguimos siendo esa misma familia que se emociona con cada pedido. Cada producto que ves en nuestra tienda ha sido cuidadosamente seleccionado porque creemos que <span class=\"story-highlight\">mereces lo mejor.</span>                 </div>             </div>                          <div class=\"values-section\">                 <div class=\"value-item\">                     <div class=\"value-icon\">💚</div>                     <div class=\"value-title\">Calidad</div>                     <div>Productos seleccionados con amor</div>                 </div>                 <div class=\"value-item\">                     <div class=\"value-icon\">🤝</div>                     <div class=\"value-title\">Confianza</div>                     <div>Tu satisfacción es nuestra prioridad</div>                 </div>                 <div class=\"value-item\">                     <div class=\"value-icon\">🌟</div>                     <div class=\"value-title\">Pasión</div>                     <div>Cada detalle importa</div>                 </div>             </div>                          <div style=\"text-align: center; background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 30px 0;\">                 <p style=\"color: #666; margin-bottom: 20px; font-size: 16px;\">                     <strong>¿Por qué no das el siguiente paso?</strong><br>                     Tu descuento te está esperando y nosotros también.                 </p>                 <a href=\"#\" class=\"cta-button\">¡Explorar Productos!</a>             </div>                          <div style=\"text-align: center; margin-top: 25px;\">                 <p style=\"color: #666; font-size: 14px; font-style: italic;\">                     \"En Mi Tienda, no solo vendes productos, construyes relaciones.\" - María & Carlos, Fundadores                 </p>             </div>         </div>                  <div class=\"footer\">             <p><strong>Mi Tienda</strong></p>             <p>Una historia de calidad y confianza desde 2018</p>             <div class=\"social-links\">                 <a href=\"#\">📘</a>                 <a href=\"#\">📷</a>                 <a href=\"#\">🐦</a>             </div>             <p style=\"margin-top: 20px; font-size: 12px;\">                 © 2025 Mi Tienda. Todos los derechos reservados.             </p>         </div>     </div> </body> </html>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        320,
+        272
+      ],
+      "id": "f217d8ec-bbcb-4fe7-a8ac-3e4abba35fe0",
+      "name": "Send a message1",
+      "webhookId": "e15d433c-64e3-432d-b3c1-f6e6bba05277",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "yKZ1GfF5A551HHPt",
+          "name": "Gmail account personal"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## ENVIO 2 ",
+        "height": 432,
+        "width": 1552,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -816,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "3a034751-2880-4111-94e2-da3c558a470a",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "value": "n8n_shopify_clientes_mitienda",
+          "mode": "list",
+          "cachedResultName": "n8n_shopify_clientes_mitienda"
+        },
+        "table": {
+          "__rl": true,
+          "value": "registro_clientes",
+          "mode": "list",
+          "cachedResultName": "registro_clientes"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Select rows from a table').item.json.id }}",
+            "created_at_registry": "={{ $now }}",
+            "updated_at": "={{ $('Select rows from a table').item.json.updated_at }}",
+            "created_at": "={{ $('Select rows from a table').item.json.created_at }}",
+            "first_name": "={{ $('Select rows from a table').item.json.first_name }}",
+            "last_name": "={{ $('Select rows from a table').item.json.last_name }}",
+            "email": "={{ $('Select rows from a table').item.json.email }}",
+            "phone": "={{ $('Select rows from a table').item.json.phone }}",
+            "envio": 2,
+            "estado": "enviado"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "created_at_registry",
+              "displayName": "created_at_registry",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "first_name",
+              "displayName": "first_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "last_name",
+              "displayName": "last_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "envio",
+              "displayName": "envio",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "estado",
+              "displayName": "estado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        528,
+        272
+      ],
+      "id": "44f7a996-ef3c-4707-b1b7-73323b3695b1",
+      "name": "Update rows in a table1",
+      "credentials": {
+        "postgres": {
+          "id": "pQmvdyJUANwGT1ce",
+          "name": "Postgre personal supabase"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Shopify Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Insert rows in a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert rows in a table": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Update rows in a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table": {
+      "main": [
+        [
+          {
+            "node": "Date & Time1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time1": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Send a message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message1": {
+      "main": [
+        [
+          {
+            "node": "Update rows in a table1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Etc/UTC",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "8f5d4deb-44a9-44f4-8885-34b984dc1da9",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "06461972981bda43b57f195864269896e9d3bae8cc063d759138fceb6de76bfa"
+  },
+  "id": "80d6X3FOn2VJl5xt",
+  "tags": []
+}
