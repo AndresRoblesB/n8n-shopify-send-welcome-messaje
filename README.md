@@ -3,7 +3,7 @@
 Este flujo automatiza el **envío de correos de bienvenida y recordatorios** a nuevos clientes que se registran en tu tienda Shopify.  
 Está construido completamente en **[n8n](https://n8n.io)** y utiliza integraciones con **Shopify**, **PostgreSQL (Supabase)** y **Gmail**.
 
-![Flujo en n8n](./841ad006-1d6e-402b-be4e-282c553ada89.png)
+![Flujo en n8n](./template/flujo%20n8n%20shopify%20bienvenida.png)
 
 ## ✨ Características principales
 
